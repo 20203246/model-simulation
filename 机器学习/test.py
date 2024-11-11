@@ -1,10 +1,12 @@
-from sklearn.datasets import load_iris
-from sklearn.linear_model import RidgeClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.model_selection import train_test_split
-X, y = load_iris(return_X_y=True)
-print(type(X))
-X_train, X_test, Y_train,Y_test = train_test_split(X,y,test_size=0.2)
-model = AdaBoostClassifier(DecisionTreeClassifier(),n_estimators=800).fit(X_train,Y_train)
-print(model.score(X_test,Y_test))
+t = int(input())
+while t:
+    t -= 1
+    n = int(input())
+    a = list(map(int, input().split()))
+    a.sort()
+    cnt0 = 0
+    cnt1 = 0
+    for x in a:
+        if x == '0':cnt0+=1
+        else:cnt1+=1
+    print(cnt1&1,min(cnt0,cnt1))
